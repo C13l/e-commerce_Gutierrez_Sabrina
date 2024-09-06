@@ -1,7 +1,20 @@
 console.log("Bienvenidos");
-const h5 = document.querySelector("h5")
-const text = document.querySelector(".card-text")
-const img = document.querySelector(".card-img-top");
-h5.innerText = "Paisaje";
-text.innerText = "El más bonito del mundo"
-img.src = "https://i.pinimg.com/736x/ac/53/c7/ac53c746c0b570df28f47c53f84657e6.jpg";
+const h1 = document.querySelector("h1")
+h1.innerText = "Productos";
+
+const arraycard =[]
+
+for(let i=1; i < 10; i++){
+        let card = `<div class="card card-margin" style="width: 18rem;">
+        <img src="https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${i}.jpg" class="card-img-top" alt="${i}">
+        <div class="card-body">
+          <h5 class="card-title">Card title ${i}</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Buy</a>
+        </div>
+    </div>
+    `;
+    arraycard.push(card)
+    document.querySelector("section").innerHTML = arraycard.join('');
+
+}
