@@ -1,7 +1,7 @@
 const h1 = document.querySelector("h1")
 h1.innerText = "Productos";
 
-const arraycard =[]
+const arraycard =[];
 
 for(let i=1; i < 10; i++){
         let card = `<div class="card card-margin" style="width: 18rem;">
