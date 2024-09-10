@@ -1,4 +1,3 @@
-console.log("Bienvenidos");
 const h1 = document.querySelector("h1")
 h1.innerText = "Productos";
 
@@ -6,7 +5,7 @@ const arraycard =[]
 
 for(let i=1; i < 10; i++){
         let card = `<div class="card card-margin" style="width: 18rem;">
-        <img src="https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${i}.jpg" class="card-img-top" alt="${i}">
+        <img src="https://66d9ee6caa07a954166f10ed--gregarious-melba-cacdba.netlify.app/${i}.jpg" class="card-img-top img-card" alt="${i}">
         <div class="card-body">
           <h5 class="card-title">Card title ${i}</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -15,6 +14,7 @@ for(let i=1; i < 10; i++){
     </div>
     `;
     arraycard.push(card)
-    document.querySelector("section").innerHTML = arraycard.join('');
 
 }
+
+document.querySelector("section").innerHTML = arraycard.join('');

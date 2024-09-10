@@ -14,3 +14,7 @@ h1{
 .card-margin{
     margin-bottom: 20px;
 }
+
+.img-card{
+    height: 200px;
+}
