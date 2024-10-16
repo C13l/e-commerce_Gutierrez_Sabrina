@@ -15,3 +15,13 @@ h1{
 .img-card{
     height: 200px;
 }
+
+.button-container{
+    width: 100%;
+    text-align: center;
+}
+
+.btn-secondary{
+    margin: 20px;
+    justify-content: space-around;
+}

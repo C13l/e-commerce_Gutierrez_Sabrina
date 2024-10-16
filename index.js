@@ -112,6 +112,9 @@ const data = [
   },
 ];
 
+const container = document.querySelector("section");
+
+const MostrarCards = (items) =>{
 const cards = data.map((movie) => {
   return `
   <div class="card card-margin" style="width: 18rem;">
@@ -124,5 +127,95 @@ const cards = data.map((movie) => {
         `;
 }).join('');
 
-const container = document.querySelector("section");
 container.innerHTML = cards;
+};
+
+MostrarCards(data);
+
+// Variable para almacenar el filtro
+let filteredMovies = data;
+
+// Función para crear tarjetas filtradas
+const createCards = (movies) => {
+  const cards = movies.map((movie) => {
+    return `
+      <div class="card card-margin" style="width: 18rem;">
+        <img src="${movie.image}">
+        <div class="card-body">
+          <h5 class="card-title">${movie.title}</h5>
+          <a href="./producto.html?prod=${movie.id}" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    `;
+  }).join('');
+  container.innerHTML = cards; // Mostrar el resultado en el contenedor
+};
+
+// Función para filtrar las películas por el nombre ingresado en el input
+const filterMovies = (event) => {
+  const moviename = event.target.value.toLowerCase();
+  filteredMovies = moviename 
+    ? data.filter((movie) => movie.title.toLowerCase().includes(moviename))
+    : data;
+  createCards(filteredMovies);
+};
+
+// Event listener para el input de búsqueda
+const input = document.querySelector(".form-control");
+if (input) {
+  input.addEventListener("input", filterMovies);
+}
+
+// Event listener para el botón de reset
+const resetbutton = document.querySelector(".delete-button");
+if (resetbutton) {
+  resetbutton.addEventListener("click", () => {
+    input.value = "";
+    filteredMovies = data;
+    createCards(filteredMovies);
+  });
+}
+
+// Inicializamos con todas las tarjetas
+createCards(filteredMovies);
+
+
+
+// Función para filtrar películas con precios menores a 50
+const filterByPriceLow = () => {
+  const filteredMovies = data.filter((movie) => movie.price < 50);
+  createCards(filteredMovies);
+};
+
+// Función para filtrar películas con precios mayores o iguales a 50
+const filterByPriceHigh = () => {
+  const filteredMovies = data.filter((movie) => movie.price >= 50);
+  createCards(filteredMovies);
+};
+
+// Event listener para el botón de filtro de precios menores a 50
+const filterPriceButtonLow = document.getElementById("filterPriceButtonLow");
+if (filterPriceButtonLow) {
+  filterPriceButtonLow.addEventListener("click", filterByPriceLow);
+}
+
+// Event listener para el botón de filtro de precios mayores o iguales a 50
+const filterPriceButtonHigh = document.getElementById("filterPriceButtonHigh");
+if (filterPriceButtonHigh) {
+  filterPriceButtonHigh.addEventListener("click", filterByPriceHigh);
+}
+
+
+// Función para restablecer el filtro de precios
+const resetPriceFilter = () => {
+  // Reiniciar filteredMovies a su estado original
+  filteredMovies = data;
+  // Llamar a createCards para mostrar todas las tarjetas
+  createCards(filteredMovies);
+};
+
+// Event listener para el botón de restablecimiento del filtro de precios
+const resetPriceButton = document.getElementById("resetPriceFilterButton");
+if (resetPriceButton) {
+  resetPriceButton.addEventListener("click", resetPriceFilter);
+}

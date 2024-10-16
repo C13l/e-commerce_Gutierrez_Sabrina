@@ -3,26 +3,28 @@ let menu = [
         texto: "Página Principal", href: "/index.html"
     },
     {
-        texto: "Productos", href: "/producto.html"
+        texto: "Productos", href: "/index.html"
     },
     {
         texto: "Contacto", href: "/contacto.html"
     }
 ]
 
-let header = document.querySelector(`header`)
+let header = document.querySelector(`header`);
 header.innerHTML = `
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid">
     <il>
       </il>
-        <form class="d-flex" role="search">
+        <div class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+          <button class="btn btn-outline-success form-control" type="submit">Search</button>
+          <button class="btn btn-outline-success delete-button" type="submit">Delete</button>
+        </div>
         </div>
     </div>
     </nav>`
+    
 
 const arraybuttons = []
 

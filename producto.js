@@ -99,19 +99,5 @@ if (product) {
       </div>
     </div>`;
   main.innerHTML = card;
-} else {
-  const cards = data.map((movie) => {
-    return `
-    <div class="card card-margin" style="width: 18rem;">
-              <img src="${movie.image}">
-              <div class="card-body">
-        <h4 class="card-title">${movie.title}</h4>
-        <h5 class="card-title">${movie.genre}</h5>
-        <p>Detalle: ${movie.description}</p>
-        <p>Precio: $${movie.price}</p>
-              </div>
-          </div>
-          `;
-  }).join('');
-  main.innerHTML = cards;
-};
+}
+
