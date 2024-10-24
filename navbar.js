@@ -17,14 +17,13 @@ header.innerHTML = `
     <il>
       </il>
         <div class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" id="inputbuscador" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success form-control" type="submit">Search</button>
-          <button class="btn btn-outline-success delete-button" type="submit">Delete</button>
-        </div>
+          <button class="btn btn-outline-danger delete-button" type="submit">Delete</button>
         </div>
     </div>
-    </nav>`
-    
+</nav>`;
+
 
 const arraybuttons = []
 

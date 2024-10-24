@@ -161,7 +161,7 @@ const filterMovies = (event) => {
 };
 
 // Event listener para el input de búsqueda
-const input = document.querySelector(".form-control");
+const input = document.querySelector("#inputbuscador");
 if (input) {
   input.addEventListener("input", filterMovies);
 }
