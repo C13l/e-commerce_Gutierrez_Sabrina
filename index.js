@@ -10,6 +10,7 @@ const data = [
     image: "http://dummyimage.com/132x100.png/5fa2dd/ffffff",
     genre: "Documentary",
     price: 16,
+    stock: 30,
   },
   {
     id: 2,
@@ -19,6 +20,7 @@ const data = [
     image: "http://dummyimage.com/119x100.png/dddddd/000000",
     genre: "Drama",
     price: 56,
+    stock: 20,
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const data = [
     image: "http://dummyimage.com/216x100.png/cc0000/ffffff",
     genre: "Drama|Musical|Romance",
     price: 22,
+    stock: 14,
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ const data = [
     image: "http://dummyimage.com/190x100.png/dddddd/000000",
     genre: "Comedy",
     price: 19,
+    stock: 12,
   },
   {
     id: 5,
@@ -46,6 +50,7 @@ const data = [
     image: "http://dummyimage.com/153x100.png/5fa2dd/ffffff",
     genre: "Documentary",
     price: 79,
+    stock:50,
   },
   {
     id: 6,
@@ -55,6 +60,7 @@ const data = [
     image: "http://dummyimage.com/144x100.png/dddddd/000000",
     genre: "Drama|Thriller",
     price: 5,
+    stock: 1,
   },
   {
     id: 7,
@@ -64,6 +70,7 @@ const data = [
     image: "http://dummyimage.com/172x100.png/dddddd/000000",
     genre: "Horror|Sci-Fi",
     price: 99,
+    stock:23,
   },
   {
     id: 8,
@@ -73,6 +80,7 @@ const data = [
     image: "http://dummyimage.com/231x100.png/ff4444/ffffff",
     genre: "Action|Comedy|Crime",
     price: 39,
+    stock:18,
   },
   {
     id: 9,
@@ -82,6 +90,7 @@ const data = [
     image: "http://dummyimage.com/191x100.png/dddddd/000000",
     genre: "Drama|Romance",
     price: 54,
+    stock: 13,
   },
   {
     id: 10,
@@ -91,6 +100,7 @@ const data = [
     image: "http://dummyimage.com/164x100.png/cc0000/ffffff",
     genre: "Drama",
     price: 48,
+    stock: 43,
   },
   {
     id: 11,
@@ -100,6 +110,7 @@ const data = [
     image: "http://dummyimage.com/171x100.png/cc0000/ffffff",
     genre: "Documentary",
     price: 39,
+    stock:71,
   },
   {
     id: 12,
@@ -109,6 +120,7 @@ const data = [
     image: "http://dummyimage.com/149x100.png/cc0000/ffffff",
     genre: "Drama",
     price: 2,
+    stock:1,
   },
 ];
 
@@ -121,6 +133,8 @@ const cards = data.map((movie) => {
             <img src="${movie.image}">
             <div class="card-body">
               <h5 class="card-title">${movie.title}</h5>
+              <p>Precio: $${movie.price}</p>
+              <p>stock: ${movie.stock}</p>
               <a href="./producto.html?prod=${movie.id}" class="btn btn-primary">Ver más</a>
             </div>
         </div>
@@ -143,6 +157,8 @@ const createCards = (movies) => {
         <img src="${movie.image}">
         <div class="card-body">
           <h5 class="card-title">${movie.title}</h5>
+          <p>Precio: $${movie.price}</p>
+          <p>stock: ${movie.stock}</p>
           <a href="./producto.html?prod=${movie.id}" class="btn btn-primary">Ver más</a>
         </div>
       </div>

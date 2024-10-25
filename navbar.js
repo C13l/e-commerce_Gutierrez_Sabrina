@@ -22,6 +22,10 @@ header.innerHTML = `
           <button class="btn btn-outline-danger delete-button" type="submit">Delete</button>
         </div>
     </div>
+    <div>
+    ${localStorage.getItem("userEmail") ? `<span class="colortexto">${localStorage.getItem("userEmail")}</span> | <span class="colortexto" onclick="logout()">Cerrar sesión</span>`
+        : `<a href="login.html"><span class="colortexto">Iniciar sesión</span></a>`}
+    </div>
 </nav>`;
 
 
@@ -41,3 +45,8 @@ let buttons = `
     num = num + 1;
 }
 document.querySelector("il").innerHTML = arraybuttons.join('');
+
+function logout(){
+    localStorage.clear()
+    location.href = "./login.html"
+}
