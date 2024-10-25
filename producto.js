@@ -145,10 +145,10 @@ if (product) {
             <button class="counter-button" onclick="increment()">+</button>
         </div>
         <div class="d-flex justify-content-between w-100">
-          <button class="btn btn-outline-dark flex-grow-1 me-2">Buy it now</button>
+          <button class="btn btn-outline-dark flex-grow-1 me-2">Comprar ahora</button>
         </div>`
         :`<div class="d-flex justify-content-center w-100">
-          <a href="login.html" class="btn btn-outline-dark unlogged-button">Login to buy</a>
+          <a href="login.html" class="btn btn-outline-dark unlogged-button">Iniciar sesión para comprar</a>
         </div>`
         }
       </div>
