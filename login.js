@@ -17,6 +17,8 @@ console.log("Password: ", password);
 
 if (User.email === email && User.password === password) {
     localStorage.setItem("userEmail", email);
+    localStorage.setItem("cart", JSON.stringify([]))
+    localStorage.setItem("quantity", "0")
     window.location.href = "index.html";
 } else {
     alert("Usuario incorrecto");

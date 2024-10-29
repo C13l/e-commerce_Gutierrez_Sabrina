@@ -141,11 +141,11 @@ if (product) {
         ${localStorage.getItem("userEmail") ?
         `<div class="counter-container">
             <button class="counter-button" onclick="decrement()">-</button>
-            <div class="counter-display" id="counter">0</div>
+            <div class="counter-display" id="counter">1</div>
             <button class="counter-button" onclick="increment()">+</button>
         </div>
         <div class="d-flex justify-content-between w-100">
-          <button class="btn btn-outline-dark flex-grow-1 me-2">Comprar ahora</button>
+          <button class="btn btn-outline-dark flex-grow-1 me-2" onclick="addItems()">Comprar ahora</button>
         </div>`
         :`<div class="d-flex justify-content-center w-100">
           <a href="login.html" class="btn btn-outline-dark unlogged-button">Iniciar sesión para comprar</a>
@@ -156,7 +156,7 @@ if (product) {
   main.innerHTML = card;
 }
 
-let count = 0;
+let count = 1;
         
 function increment() {
   if (count < product.stock) {
@@ -166,8 +166,37 @@ function increment() {
 }
 
 function decrement() {
-  if (count > 0) {
+  if (count > 1) {
       count--;
       document.getElementById("counter").innerText = count;
+  }
+}
+
+function addItems() {
+  // Obtenemos el carrito de localStorage
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Buscamos si el producto ya está en el carrito
+  const existingProduct = cart.find(item => item.id === productId);
+
+  if (existingProduct) {
+    existingProduct.quantity += count;
+  } else {
+cart.push({ ...product, quantity: count });
+  }
+
+  // Guardamos el carrito actualizado en localStorage
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Calculamos la cantidad total de productos
+  const quantity = cart.reduce((acumulado, actual) => acumulado + actual.quantity, 0);
+
+  // Guardamos la cantidad total en localStorage
+  localStorage.setItem("quantity", quantity);
+
+  // Actualizamos el elemento en la página
+  const quantityTag = document.querySelector("#quantity");
+  if (quantityTag) {
+    quantityTag.innerText = quantity;
   }
 }
