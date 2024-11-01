@@ -1,6 +1,6 @@
 let menu = [
     {
-        texto: "Página Principal", href: "/index.html"
+        texto: "Página Principal", href: "/index.html",
     },
     {
         texto: "Productos", href: "/index.html"
@@ -38,7 +38,7 @@ let num = 0;
 for(let crearnavbar of menu){
 
 let buttons = `
-    <a class="navbar-brand" href="${menu.at(num).href}">${menu.at(num).texto}</a>
+    <a class="navbar-brand colortexto" href="${menu.at(num).href}">${menu.at(num).texto}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
