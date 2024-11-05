@@ -64,6 +64,7 @@ function total(cards){
 total(JSON.parse(localStorage.getItem("cart")))
 
 function removeItem(id) {
+    function remove(){
     const cards = JSON.parse(localStorage.getItem("cart"));
     const newCards = cards.filter(card => card.id !== id);
     localStorage.setItem("cart", JSON.stringify(newCards));
@@ -79,13 +80,57 @@ function removeItem(id) {
 
     const quantityTag = document.querySelector("#quantity");
     quantityTag.innerText = quantity;
+
+    Toastify({
+        text: "Eliminaste producto/s del carrito de compras",
+        duration: 3000,
+        style: {
+          background: "#DB5079",
+        },
+      }).showToast();
+
+}
+Swal.fire({
+    text: "¿Estás seguro/a de que querés eliminar este producto de tu carrito?",
+    confirmButtonText: "Si",
+    cancelButtonText: "No",
+    showCancelButton: true,
+    ahowCloseButton: true,
+    confirmButtonColor: "#06f",
+    cancelButtonColor: "#DB5079",
+  }).then(result => {
+    if (result.isConfirmed)
+      remove()
+  })
 }
 
 function clearCart() {
+    function clear(){
     let quantityTag = document.querySelector("#quantity");
     quantityTag.innerText = "0";
     localStorage.setItem("cart", JSON.stringify([]));
     localStorage.setItem("quantity", "0"); // Establece quantity en cero
     getCart([]);
     total([]);
+
+    Toastify({
+        text: "Eliminaste todos los productos del carrito de compras",
+        duration: 3000,
+        style: {
+          background: "#DB5079",
+        },
+      }).showToast();
+}
+Swal.fire({
+    text: "¿Estás seguro/a de que querés eliminar todos los productos de tu carrito?",
+    confirmButtonText: "Si",
+    cancelButtonText: "No",
+    showCancelButton: true,
+    ahowCloseButton: true,
+    confirmButtonColor: "#06f",
+    cancelButtonColor: "#DB5079",
+  }).then(result => {
+    if (result.isConfirmed)
+      clear()
+  })
 }

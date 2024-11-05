@@ -24,9 +24,9 @@ header.innerHTML = `
     </div>
     <div>
     ${localStorage.getItem("userEmail") ? `<span class="colortexto">${localStorage.getItem("userEmail")}</span>
-        |<span><a href="cart.html"><img height="25" src="cart.png"> <b class="colortexto" id="quantity">${localStorage.getItem("quantity")}</b></a></span>
-        |<span class="colortexto" onclick="logout()">Cerrar sesión</span>`
-        : `<a href="login.html"><span class="colortexto">Iniciar sesión</span></a>`}
+        |<span><a href="cart.html"><img height="25" src="img/cart.png"> <b class="colortexto" id="quantity">${localStorage.getItem("quantity")}</b></a></span>
+        |<span onclick="logout()"><img height="25" src="img/logout.png"></span>`
+        : `<a href="login.html"><span><img height="25" src="img/login.png"></span></a>`}
     </div>
 </nav>`;
 

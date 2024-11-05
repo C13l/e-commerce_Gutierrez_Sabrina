@@ -145,7 +145,9 @@ if (product) {
             <button class="counter-button" onclick="increment()">+</button>
         </div>
         <div class="d-flex justify-content-between w-100">
-          <button class="btn btn-outline-dark flex-grow-1 me-2" onclick="addItems()">Comprar ahora</button>
+          <button class="btn btn-outline-dark flex-grow-1 me-2" onclick="addItems()"><span class="material-symbols-outlined">
+add_shopping_cart
+</span> Comprar ahora</button>
         </div>`
         :`<div class="d-flex justify-content-center w-100">
           <a href="login.html" class="btn btn-outline-dark unlogged-button">Iniciar sesión para comprar</a>
@@ -173,6 +175,7 @@ function decrement() {
 }
 
 function addItems() {
+  function add(){
   // Obtenemos el carrito de localStorage
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -199,4 +202,26 @@ cart.push({ ...product, quantity: count });
   if (quantityTag) {
     quantityTag.innerText = quantity;
   }
+
+  Toastify({
+    text: "Agregaste producto/s al carrito de compras",
+    duration: 3000,
+    style: {
+      background: "#DB5079",
+    },
+  }).showToast();
+
+  }
+  Swal.fire({
+    text: "¿Estás seguro/a de que querés agregar el producto a tu carrito?",
+    confirmButtonText: "Si",
+    cancelButtonText: "No",
+    showCancelButton: true,
+    ahowCloseButton: true,
+    confirmButtonColor: "#06f",
+    cancelButtonColor: "#DB5079",
+  }).then(result => {
+    if (result.isConfirmed)
+      add()
+  })
 }
