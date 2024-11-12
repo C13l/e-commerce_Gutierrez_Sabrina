@@ -144,7 +144,13 @@ const cards = data.map((movie) => {
 container.innerHTML = cards;
 };
 
-MostrarCards(data);
+const promise = new Promise ((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Cargado")
+  }, 5000)
+})
+
+promise.then(() => MostrarCards(data));
 
 // Variable para almacenar el filtro
 let filteredMovies = data;
@@ -192,9 +198,8 @@ if (resetbutton) {
   });
 }
 
-// Inicializamos con todas las tarjetas
-createCards(filteredMovies);
-
+// Inicializamos con todas las tarjetas;
+promise.then(() => createCards(filteredMovies));
 
 
 // Función para filtrar películas con precios menores a 50

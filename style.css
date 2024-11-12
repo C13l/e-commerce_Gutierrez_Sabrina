@@ -66,3 +66,7 @@ h1{
   top: 4px;
   left: -3px;
 }
+
+.spinner-margin {
+    margin-top: 100px;
+}
