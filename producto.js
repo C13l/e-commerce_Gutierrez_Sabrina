@@ -129,7 +129,7 @@ let main = document.querySelector("main");
 
 if (product) {
   const card = `
-    <div class="card card-margin" style="width: 18rem;">
+    <div class="card card-margin" style="width: 30rem;">
       <img src="${product.image}" class="card-img-top img-card">
       <div class="card-body">
         <h4 class="card-title">${product.title}</h4>
