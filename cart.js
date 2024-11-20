@@ -147,7 +147,7 @@ function checkout(){
     items: JSON.parse(localStorage.getItem("cart")),
   }
 
-  fetch("https://67368528aafa2ef22230bb96.mockapi.io/Orders",{
+  fetch("https://67367b0baafa2ef222309f81.mockapi.io/cart/orders",{
     method: "POST",
     body: JSON.stringify(recurso),
   })
