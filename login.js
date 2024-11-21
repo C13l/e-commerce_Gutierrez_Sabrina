@@ -21,7 +21,14 @@ if (User.email === email && User.password === password) {
     localStorage.setItem("quantity", "0")
     window.location.href = "index.html";
 } else {
-    alert("Usuario incorrecto");
+  Toastify({
+    text: "Error: no se pudo iniciar sesión. Por favor, verifica tus datos.",
+    style: {
+      background: "#dc3545",
+      color: "#fff",
+    },
+    duration: 3000,
+  }).showToast();
     form.elements.email.value = "";
     form.elements.password.value = "";
   };
