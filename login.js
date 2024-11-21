@@ -21,14 +21,7 @@ if (User.email === email && User.password === password) {
     localStorage.setItem("quantity", "0")
     window.location.href = "index.html";
 } else {
-    Toastify({
-      text: "  Error: no se pudo iniciar sesión. Por favor, verifica tus datos.",
-      duration: 3000,
-      style: {
-        background: "#DB5079",
-      },
-    }).showToast();
-
+alert("Introduce los datos correctos.")
     form.elements.email.value = "";
     form.elements.password.value = "";
   };
