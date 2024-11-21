@@ -147,7 +147,7 @@ container.innerHTML = cards;
 const promise = new Promise ((resolve, reject) => {
   setTimeout(() => {
     resolve("Cargado")
-  }, 5000)
+  }, 3000)
 })
 
 promise.then(() => MostrarCards(data));
